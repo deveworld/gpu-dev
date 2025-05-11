@@ -1,4 +1,9 @@
 # gpu-dev
+An docker image env for LLM development on GPU (Nvidia).
+
+Include torch, [transformers](https://github.com/huggingface/transformers), [unsloth](https://github.com/unslothai/unsloth), [flash-attn](https://github.com/Dao-AILab/flash-attention), [axolotl](https://github.com/axolotl-ai-cloud/axolotl).
+
+Use port 8000 for jupyter notebook.
 
 ## Usage
 ### Cuda 12.6
