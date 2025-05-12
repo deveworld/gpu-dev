@@ -30,13 +30,17 @@ RUN curl -LsSf https://astral.sh/uv/install.sh | env UV_INSTALL_DIR=${UV_INSTALL
 
 ENV PATH="/opt/venv/bin:${UV_INSTALL_DIR}:$PATH"
 
-RUN uv pip install --no-cache-dir -U pip && \
-    uv pip install --no-cache-dir transformers trl peft accelerate datasets evaluate && \
+RUN uv pip install --no-cache-dir -U pip
+
+RUN uv pip install --no-cache-dir transformers trl peft accelerate datasets evaluate && \
     uv pip install --no-cache-dir unsloth notebook jupyterlab ipywidgets && \
-    uv pip install --no-cache-dir packaging wheel setuptools ninja && \
-    uv pip install --no-cache-dir flash-attn --no-build-isolation && \
-    uv pip install --no-cache-dir --no-build-isolation axolotl[flash-attn,deepspeed] && \
-    uv pip install --no-cache-dir --pre torch torchvision torchaudio --index-url https://download.pytorch.org/whl/nightly/cu128
+    uv pip install --no-cache-dir packaging wheel setuptools ninja
+    
+RUN uv pip install --no-cache-dir flash-attn --no-build-isolation
+
+RUN uv pip install --no-cache-dir --no-build-isolation axolotl[flash-attn,deepspeed]
+
+RUN uv pip install --no-cache-dir --pre torch torchvision torchaudio --index-url https://download.pytorch.org/whl/nightly/cu128
 
 EXPOSE 8000
 
